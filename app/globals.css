@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0D1164;
+  --foreground: #0a0a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ededed;
+    --foreground: #0a0a0a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* src/index.css */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animate-typing {
+  animation: typing 3.5s steps(40, end) 1s infinite normal both,
+             blink-caret 0.75s step-end infinite;
+}
+
+li:hover .hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #b45309;
+}
+
+li.group:hover span {
+  width: 100%;
+}
+
+li.hover-underline {
+  position: relative;
+}
+
+div[style*="padding: 8px 40px"]:hover {
+  background-color: #1f2937;
+}
