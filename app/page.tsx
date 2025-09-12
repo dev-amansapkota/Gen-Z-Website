@@ -47,10 +47,10 @@ export default function Home() {
     </div>
     </div>
     
-<div className="justify-center flex text-3xl font-bold mt-8"> <h2>Our Courses</h2></div>
+<div className="justify-center flex text-3xl font-bold mt-8 my-4"> <h2>Our Courses</h2></div>
 <section id="NEB"
- className="mx-10 my-4 flex">
-<div className="h-[250px]  border-amber-700 w-[400px] bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded">
+ className="md:mx-10 md:my-4 flex grid sm:grid-cols-1 md:grid-cols-3 overflow-hidden  ">
+<div className="md:h-[250px] md:my-4 border-amber-700 md:w-[400px] w-full bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded">
   <div className="bg-orange-100 h-full rounded-l-full w-[90px] justify-center  items-center absolute right-0 flex">
     <img src='https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp' className=" w-[40px]"></img>
 
@@ -81,7 +81,7 @@ export default function Home() {
   </div>
 
 </div>
-<div className="h-[250px] w-[400px] bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded mx-8">
+<div className="md:h-[250px] md:my-4 my-4 md:w-[400px] w-full bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded  ">
   <div className="bg-orange-100 h-full rounded-l-full w-[90px] justify-center  items-center absolute right-0 flex">
     <img src='https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp' className=" w-[40px]"></img>
 
@@ -113,7 +113,7 @@ export default function Home() {
 
 
 </div>
-<div className="h-[250px] w-[400px] bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded mx-8">
+<div className="md:h-[250px] md:my-4 md:w-[400px] w-full bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded md:mx-17">
   <div className="bg-orange-100 h-full rounded-l-full w-[90px] justify-center  items-center absolute right-0 flex">
     <img src='https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp' className=" w-[40px]"></img>
 
@@ -148,8 +148,8 @@ export default function Home() {
 
 </section>
 <section id="Bachelor"
- className="mx-10 my-8 flex">
-<div className="h-[250px] w-[400px] bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded">
+ className="md:mx-10 md:my-8 my-4 grid flex sm:grid-cols-1 md:grid-cols-3">
+<div className="h-[250px] sm:my-4 md:w-[400px] sm:w-full bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded">
   <div className="bg-orange-100 h-full rounded-l-full w-[90px] justify-center  items-center absolute right-0 flex">
     <img src='https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp' className=" w-[40px]"></img>
 
@@ -180,7 +180,7 @@ export default function Home() {
   </div>
 
 </div>
-<div className="h-[250px] w-[400px] bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded mx-8">
+<div className="md:h-[250px] w-full sm:my-4 md:w-[400px] bg-white shadow-2xs hover:scale-105 duration-300 transition-transform  hover:border-t-4 inset-shadow-zinc-100 relative rounded md:mx-8 my-4">
   <div className="bg-orange-100 h-full rounded-l-full w-[90px] justify-center  items-center absolute right-0 flex">
     <img src='https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp' className=" w-[40px]"></img>
 
@@ -218,9 +218,9 @@ export default function Home() {
 
 
 <div className="text-center text-3xl font-bold">  <h2 >College Courses</h2></div>
-<section id="Colleges-1" className="mt-7 mx-19 cursor-pointer flex ">
+<section id="Colleges-1" className="mt-7 mx-19 cursor-pointer flex grid grid-cols-1 md:grid-cols-2 ">
 
-  <div className="h-auto w-[600px] mt-5 mb-12  bg-white rounded hover:scale-105 transition-all duration-500">
+  <div className="h-auto md:w-[500px] w-full mt-5 mb-12  bg-white rounded hover:scale-105 transition-all duration-500">
 <img src="https://th.bing.com/th/id/R.c3414437f44458964340879663bfbf82?rik=K3szPQEkZqCdOw&pid=ImgRaw&r=0" className=""></img>
 <h2 className="text-2xl font-bold my-2 mx-2">CMAT Preparation</h2>
 <p className="text-zinc-600 my-2 mx-2"><span className="font-bold">CMAT</span> is a popular management entrance exam conducted by the Faculty of Management, Tribhuvan University. It is required for students ....</p>
@@ -244,7 +244,7 @@ export default function Home() {
   
   </div>
   
-  <div className="h-auto w-[600px] mt-5 mb-12 mx-9 bg-white rounded hover:scale-105 transition-all duration-500">
+  <div className="h-auto md:w-[500px]  w-full mt-5 mb-12 mx-2 bg-white rounded hover:scale-105 transition-all duration-500">
 <img src="https://i.ytimg.com/vi/s-CnvmuEJ6k/maxresdefault.jpg" className=""></img>
 <h2 className="text-2xl font-bold my-2 mx-2">BIT Entrance Preparation</h2>
 <p className="text-zinc-600 my-2 mx-2">The BIT entrance examination in Nepal is conducted by Tribhuvan University, and candidates must meet specific eligibility criteria and prepare for ..</p>
@@ -268,10 +268,10 @@ export default function Home() {
   </div>
   
 </section>
-<section id="Colleges" className="mt-7 mx-19 cursor-pointer flex ">
+<section id="Colleges" className="mt-7 md:mx-19 cursor-pointer flex grid sm:grid-cols-1 md:grid-cols-2 ">
 
-  <div className="h-auto w-[600px] mt-5 mb-12  bg-white rounded hover:scale-105 transition-all duration-500">
-<img src="https://th.bing.com/th/id/R.3b278015c9f96d1b15e11e0598bf263c?rik=AfOrWJBjjCG5Ow&pid=ImgRaw&r=0" className=""></img>
+  <div className="h-auto md:w-[500px]  mt-5 mb-12  bg-white rounded hover:scale-105 transition-all duration-500">
+<img src="https://th.bing.com/th/id/R.3b278015c9f96d1b15e11e0598bf263c?rik=AfOrWJBjjCG5Ow&pid=ImgRaw&r=0" ></img>
 <h2 className="text-2xl font-bold my-2 mx-2">BSc.CSIT</h2>
 <p className="text-zinc-600 my-2 mx-2">The Bachelor of Science in Computer Science and Information Technology (BSc CSIT) is a popular four-year program in Nepal, primarily offered by ...</p>
   <div className="flex  mx-2">
@@ -294,7 +294,7 @@ export default function Home() {
   
   </div>
   
-  <div className="h-auto w-[600px] mt-5 mb-12 mx-9 bg-white rounded hover:scale-105 transition-all duration-500">
+  <div className="h-auto md:w-[500px]  mt-5 mb-12 mx-9 bg-white rounded hover:scale-105 transition-all duration-500 ">
 <img src="https://tse1.mm.bing.net/th/id/OIP._O8rDIqtEID1FI_j8A-20QHaD5?r=0&w=1201&h=631&rs=1&pid=ImgDetMain&o=7&rm=3" className=""></img>
 <h2 className="text-2xl font-bold my-2 mx-2">BCA Entrance Preparation</h2>
 <p className="text-zinc-600 my-2 mx-2">The Bachelor of Computer Applications (BCA) program in Nepal is a four-year degree focused on computer application development....</p>
@@ -319,10 +319,10 @@ export default function Home() {
   
 </section>
    
-<h2 className="text-3xl font-bold justify-center items-center flex"> Colleges/Universities</h2>
-  <section id="Colleges " className="mx-16 mb-10 flex my-6">
-<div className="w-[500px] relative border border-white overflow-hidden rounded-2xl">
-  <img src="https://utfs.io/f/iCN7oS8Yds8D7UNKY8nm6uNiY2ySwR9CtVMBF30bOr845UfD" className="relative h-[200px] z-0 w-[500px] hover:scale-105 box-content duration-300 transition-normal "></img>
+<h2 className="text-3xl font-bold justify-center items-center flex "> Colleges/Universities</h2>
+  <section id="Colleges " className="mx-16 mb-10 flex my-6 grid grid-cols-1 md:grid-cols-2  ">
+<div className="md:w-[500px] relative border border-white overflow-hidden rounded-2xl">
+  <img src="https://utfs.io/f/iCN7oS8Yds8D7UNKY8nm6uNiY2ySwR9CtVMBF30bOr845UfD" className="relative w-full h-48 md:h-60 object-cover z-0 hover:scale-105 box-content duration-300 transition-normal "></img>
   <div className="w-[100px] h-[90px] my-25  bg-white shadow-2xl rounded-2xl absolute justify-end flex items-end  z-10 bottom-5 left-0">
   <img src="https://utfs.io/f/iCN7oS8Yds8D5FscYKNIs9q3Y6xHKaQpGCJj5VXF4tzPEwof"></img>
 
@@ -349,8 +349,8 @@ export default function Home() {
 </div>
 </div>
 
-<div className="w-[500px] relative border border-white overflow-hidden mx-6 rounded-2xl">
-  <img src="https://utfs.io/f/iCN7oS8Yds8Df605MYaP8m9nFwGR0SjlMEfq4OCKV2zvtYsb" className="relative h-[200px] z-0 w-[500px] hover:scale-105 box-content duration-300 transition-normal "></img>
+<div className="w-[400px] relative border border-white overflow-hidden mx-0 rounded-2xl  ">
+  <img src="https://utfs.io/f/iCN7oS8Yds8Df605MYaP8m9nFwGR0SjlMEfq4OCKV2zvtYsb" className="relative w-full h-48 md:h-60 object-cover hover:scale-105 box-content duration-300 transition-normal "></img>
   <div className="w-[100px] h-[90px] my-25  bg-white shadow-2xl rounded-2xl absolute justify-end flex items-end  z-10 bottom-5 left-0">
   <img src="https://utfs.io/f/iCN7oS8Yds8DQTO2SNyTEx7nI39RkfjXLueMFZ8bGBi6PDQd" className="rounded-2xl"></img>
 
@@ -381,9 +381,9 @@ export default function Home() {
 
   </section>
   
-  <section id="Colleges " className="mx-16 mb-10 flex my-6">
-<div className="w-[500px] relative border border-white overflow-hidden rounded-2xl">
-  <img src="https://utfs.io/f/iCN7oS8Yds8DD1Y3xzhLpQw5RofWtUmskEqhXbHNdDMxFAYr" className="relative h-[200px] z-0 w-[500px] hover:scale-105 box-content duration-300 transition-normal "></img>
+  <section id="Colleges " className="mx-16 mb-10 flex my-6 grid grid-cols-1 md:grid-cols-2  ">
+<div className="md:w-[500px] sm:w-full flex-col relative border border-white overflow-hidden rounded-2xl  ">
+  <img src="https://utfs.io/f/iCN7oS8Yds8DD1Y3xzhLpQw5RofWtUmskEqhXbHNdDMxFAYr" className="relative w-full object-cover h-48 md:h-60 z-0 w-[500px] hover:scale-105 box-content duration-300 transition-normal "></img>
   <div className="w-[100px] h-[90px] my-25  bg-white shadow-2xl rounded-2xl absolute justify-end flex items-end  z-10 bottom-5 left-0">
   <img src="https://utfs.io/f/iCN7oS8Yds8Dly5MlgiHnAISD2jENBtoFRJkUdabs9w4zpLY" className="rounded-2xl"></img>
 
