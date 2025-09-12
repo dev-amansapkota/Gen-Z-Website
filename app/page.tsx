@@ -1,5 +1,4 @@
 'use client'
-import img from 'next/img';
 import { useState } from 'react';
 import { FiBook } from 'react-icons/fi';
 import { FaArrowRight, FaQuestion } from 'react-icons/fa';
