@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-amber-700 transition-all duration-300 group-hover:w-full"></span>
             </li>
             <li className="hover:underline">
-              <a href="/about">Courses</a>
+              <Link href="/about">Courses</Link>
             </li>
             <li className="hover:underline">PYQs</li>
             <li className="hover:underline">Entrance Exam</li>
@@ -38,7 +39,7 @@ const Navbar = () => {
             <ul className="flex flex-col items-center text-lg py-4 gap-4">
               <li className="hover:underline">Batches</li>
               <li className="hover:underline">
-                <a href="/about">Courses</a>
+                <Link href="/about">Courses</Link>
               </li>
               <li className="hover:underline">PYQs</li>
               <li className="hover:underline">Entrance Exam</li>

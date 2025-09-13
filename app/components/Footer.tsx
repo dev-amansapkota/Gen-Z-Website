@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { CiInstagram, CiYoutube } from 'react-icons/ci'
 import { FaFacebook, FaTiktok } from 'react-icons/fa'
@@ -69,7 +70,7 @@ const Footer = () => {
         color: "#FF0000",
       },
     ].map((socialIcon, index) => (
-      <a
+      <Link
         key={index}
         href={socialIcon.link}
         target="_blank"
@@ -78,7 +79,7 @@ const Footer = () => {
         style={{ color: socialIcon.color }}
       >
         {socialIcon.logo}
-      </a>
+      </Link>
     ))}
   </div>
 

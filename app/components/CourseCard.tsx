@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 
@@ -60,7 +61,7 @@ const CourseCard = () => {
                     ))}
                   </div>
                   <div className="mt-6 flex items-center text-lg hover:text-amber-900 hover:underline">
-                   <a href={course.link}> <span>Explore Categories</span> </a>
+                   <Link href={course.link}> <span>Explore Categories</span> </Link>
                     <FaArrowRight className="ml-2" />
                   </div>
                 </div>
