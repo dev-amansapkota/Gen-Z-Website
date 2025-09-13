@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react';
-import { FiBook } from 'react-icons/fi';
-import { FaArrowRight, FaQuestion } from 'react-icons/fa';
+import { FiBook, FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { FaArrowRight, FaFacebook, FaQuestion, FaTiktok } from 'react-icons/fa';
 import { LiaVideoSolid } from 'react-icons/lia';
-import { CiCalendarDate, CiLocationOn } from 'react-icons/ci';
+import { CiCalendarDate, CiInstagram, CiLocationOn, CiYoutube } from 'react-icons/ci';
 import { BiGroup } from 'react-icons/bi';
 import { LuGraduationCap } from "react-icons/lu";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,8 +15,9 @@ import 'swiper/css/autoplay';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isArrowOpen, setIsArrowOpen] = useState(false);
   return (
-    <div className="min-h-screen text-zinc-800">
+    <div className="min-h-screen text-zinc-700">
    
       <nav className="my-3 px-4 sm:px-6 lg:px-10 flex justify-between items-center font-bold">
         <img
@@ -445,7 +446,120 @@ export default function Home() {
         <div className='my-6'>
           <h2 className='font-bold text-center text-2xl  text-red-700 '>FAQs</h2>
         <p className='text-center'> Have Any Queries? Feel free to ask</p>
+        
         </div>
+        
+        <div className=' flex max-w-1/2  mx-auto '>
+                
+          <button onClick={()=>setIsArrowOpen(!isArrowOpen)}
+          
+          className='hover:underline max-w-1/2  mx-auto '>
+              
+            <div className='flex'><h2 className='font-bold'>What is Generation Z website?</h2>
+       
+
+          {isArrowOpen ?(
+            <FiChevronUp className='my-1 mx-4'/>
+          ):(
+            <FiChevronDown className='my-1 mx-4'/>
+          )
+            
+          }</div>
+          
+
+          {isArrowOpen && (
+            <div className='text-start'>
+              <p> {'=> '}A Generation Z website is a digital platform designed specifically to engage and resonate with the unique preferences, values, and online behaviors of Generation Z, emphasizing speed, visual storytelling, personalization, social media integration, and mobile-first usability.</p>
+            </div>
+            
+          )
+}
+
+         
+          </button>
+           <div className=' items-end flex '><img src='https://i.imgur.com/oeqNAPk.png' className='md:w-[200px]  '></img></div>
+        </div>
+
+        <section className='w-full  h-[250px] bg-[#FFFDF6] rounded-2xl'>
+         
+         <div className='mx-4 flex '>
+        <img src='https://tse1.mm.bing.net/th/id/OIP.jrPMu5I6nQScDjDIZk3JEwHaE8?r=0&w=600&h=400&rs=1&pid=ImgDetMain&o=7&rm=3' className='w-[80px] h-full  rounded-2xl m-4'></img>
+        <div className='my-4'>
+          <h2 className=' font-bold '>Generation Z Nepal</h2>
+        <p>We are for quality education</p>
+        
+        </div>
+        <div className='flex justify-evenly   mx-auto w-full   '>
+          <div className='my-3 '>
+    <h2 className='font-bold '>Courses</h2>
+    <p>Class 10</p>
+    <p>Class 11</p>
+    <p>Class 9</p>
+    <p>Class 12</p>
+</div>
+<div className=' my-3  '>
+    <h2 className='font-bold'>Entrance</h2>
+    <p>BSc.CSIT</p>
+     <p>BCA</p>
+      <p>BIT</p>
+       <p>BBS</p>
+        <p>BBA</p>
+
+</div>
+<div className='my-3'>
+    <h2 className='font-bold'>Batches</h2>
+    <p>Alpha</p>
+    <p>Beta</p>
+    <p>Gamma</p>
+    <p>Delta</p>
+</div>
+        </div>
+        
+        </div>
+<div className='flex gap-4 items-end justify-start mx-8 text-2xl '>
+  {[
+    {
+    logo: <FaFacebook />,
+    link:'facebook.com',
+    color: "#3b5998"
+  },
+  {
+    logo: <CiInstagram />,
+    link:'Instagram.com',
+    color: "#E4405F", 
+   
+  },
+   {
+    logo: <FaTiktok />,
+    link:'Tiktok.com',
+    color: "#000000",
+  },
+   {
+    logo: <CiYoutube />,
+    link:'Youtube.com',
+    color: "#FF0000",
+   
+  },
+
+  ].map((socialIcon,index)=>{
+    return (
+      <div className='hover:scale-200 duration-500' style={{color: socialIcon.color}}
+       key={index} > 
+      <a href={socialIcon.link} 
+      >
+        {socialIcon.logo } 
+        
+         </a>
+      </div>
+    )
+  })}
+  
+ 
+</div>
+          
+ <footer className='text-center font-bold mb-4 text-amber-800'> © 2025 Aman Sapkota </footer>
+        </section>
+        
       </div>
    
   );
