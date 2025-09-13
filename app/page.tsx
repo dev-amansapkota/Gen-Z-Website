@@ -441,6 +441,12 @@ export default function Home() {
     })}
   
       </Swiper>
-    </div>
+      
+        <div className='my-6'>
+          <h2 className='font-bold text-center text-2xl  text-red-700 '>FAQs</h2>
+        <p className='text-center'> Have Any Queries? Feel free to ask</p>
+        </div>
+      </div>
+   
   );
 }    
