@@ -416,7 +416,7 @@ export default function Home() {
     ].map((Testimonials,index)=>{
        return(
           <SwiperSlide key={index} >
-            <div className='flex my-5 mx-18'>
+            <div className='flex my-5 md:mx-18'>
               <img 
                 src={Testimonials.img} 
                 alt={Testimonials.student_name}
@@ -433,7 +433,7 @@ export default function Home() {
 
               
             </div>
-            <p className='text-start w-[400px] mx-18 '>{Testimonials.feedback}</p>
+            <p className='text-start w-[400px] md:mx-18 '>{Testimonials.feedback}</p>
 
           </SwiperSlide>
          
