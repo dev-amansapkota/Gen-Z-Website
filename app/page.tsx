@@ -433,7 +433,7 @@ export default function Home() {
 
               
             </div>
-            <p className='text-start w-[400px] md:mx-18 '>{Testimonials.feedback}</p>
+            <p className='text-start w-[350px] md:mx-18 '>{Testimonials.feedback}</p>
 
           </SwiperSlide>
          
