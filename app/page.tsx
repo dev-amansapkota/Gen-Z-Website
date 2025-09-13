@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { FiBook } from 'react-icons/fi';
 import { FaArrowRight, FaQuestion } from 'react-icons/fa';
 import { LiaVideoSolid } from 'react-icons/lia';
-import { CiLocationOn } from 'react-icons/ci';
+import { CiCalendarDate, CiLocationOn } from 'react-icons/ci';
 import { BiGroup } from 'react-icons/bi';
+import { LuGraduationCap } from "react-icons/lu";
+
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,22 +83,27 @@ export default function Home() {
           {
             title: 'NEB',
             categories: ['Class 11', 'Class 12', 'Dropper'],
+            link: '/neb-categories'
           },
           {
             title: 'SEE',
             categories: ['Class 10', 'Class 9', 'Class 8'],
+             link: '/see-categories'
           },
           {
             title: 'Entrance Exam',
             categories: ['Bsc.CSIT', 'BCA', 'BIT'],
+             link: '/entrance-categories'
           },
           {
             title: 'Bachelor',
             categories: ['BSC.CSIT', 'BCA', 'BIT'],
+             link: '/bachelors-categories'
           },
           {
             title: 'Others',
             categories: ['Kharidar', 'Nayab Subba', 'so on..'],
+            link: '/others-categories'
           },
         ].map((course, index) => (
           <div
@@ -125,7 +132,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-6 flex items-center text-lg hover:text-amber-900 hover:underline">
-                <span>Explore Categories</span>
+               <a href={course.link}> <span>Explore Categories</span> </a>
                 <FaArrowRight className="ml-2" />
               </div>
             </div>
@@ -260,6 +267,85 @@ export default function Home() {
             </div>
           </div>
         ))}
+      </section>
+
+
+      <h2 className='mx-4 text-[rgb(3,116,126)] text-3xl font-bold'>Partner Colleges</h2>
+      <h2 className='mx-4'>Explore Our Partner College</h2>
+      <section
+       className='px-4 sm:px-6 lg:px-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'>
+       {[
+        {
+        img: 'https://utfs.io/f/iCN7oS8Yds8DRR3gtew3heTUZGyVkJEKDazdbC4uY6M1wpPi',
+        name: 'Model Institute Of Technology',
+        logo: 'https://utfs.io/f/iCN7oS8Yds8Dnysqh3AlWbZ0mvKeQJoD1fz7Fsytw6Aj8i4n',
+        location:'Bagbazar, Kathmandu',
+        established: 'Established 2001',
+        Affiliated: 'Affiliated to: International Americabn University',
+        courses: ['BIT', 'BBA']
+       },
+       {
+        img:'https://utfs.io/f/iCN7oS8Yds8DLVkhe3vXeCAgz5ckPqxKubojlLMZDQnR3whS',
+        name:'Softwarica College of IT',
+        logo:'https://utfs.io/f/iCN7oS8Yds8D7Lyte5nm6uNiY2ySwR9CtVMBF30bOr845UfD',
+        location:'Maitri marg, Dillibazar, Kathmandu',
+        established:'Established: 2010',
+        Affiliated:'Affiliated to: Conventry University',
+        courses: ['BSc hons CS with Ai', 'BSc(hons) Computing', 'BSc hons']
+
+       },
+       {
+        img:'https://utfs.io/f/iCN7oS8Yds8DAIVycRmLZMFIrGibxalSV6TDKyq4dgmuptzo',
+        name: 'Samridhi College',
+        location: 'Lokanthali, Bhaktapur',
+        logo:'https://utfs.io/f/iCN7oS8Yds8DkF9SUBp1iOvKxwU5MjurmSnaqRXy8cYBeZNV',
+        established: 'Established: 2013',
+        Affiliated: 'Affiliated to: Tribhuwan university',
+        courses: ['CSIT', 'BBS']
+       }
+
+       ].map((partners, index)=>{
+       return  (
+        <div key='index' className='my-4 '>
+           <img src={partners.img} className='hover:scale-105 duration-500 object-cover overflow-hidden rounded transition-transform'></img>
+         <div  className='flex'>
+          
+            <img src={partners.logo}className='w-[60px] rounded my-7 mx-4 ' ></img>
+          <div className=' gap-1 flex flex-col my-6 '>
+           
+           <h2 className='font-bold mx-3 '>{partners.name}</h2>
+
+        <div className='flex items-center  '>
+  <CiLocationOn className='mx-1' />
+  <p>{partners.location}</p>
+</div>
+            
+         </div>
+         
+          </div>
+          <div className='flex flex-col'>
+            <div className='flex'>
+              <CiCalendarDate className='my-1' />
+              <p className='mx-2'>{partners.established}</p>
+            </div>
+          <div className='flex'>
+            <LuGraduationCap className='my-1' />
+            <p className='mx-2'>{partners.Affiliated}</p>
+          </div>
+          </div>
+          <div className='flex items-stretch my-6'>
+            <div className='h-full  bg-blue-100 text-blue-900 font-bold  rounded px-2'>
+              {partners.courses[0]}
+            </div>
+            <div className='h-full  bg-green-100 text-green-900 font-bold  rounded px-2 mx-4'>
+              {partners.courses[1]}
+            </div>
+            <div></div>
+          </div>
+        </div>
+       )
+       })}
+
       </section>
     </div>
   );
