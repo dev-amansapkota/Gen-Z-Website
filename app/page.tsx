@@ -6,11 +6,15 @@ import { LiaVideoSolid } from 'react-icons/lia';
 import { CiCalendarDate, CiLocationOn } from 'react-icons/ci';
 import { BiGroup } from 'react-icons/bi';
 import { LuGraduationCap } from "react-icons/lu";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
 
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen text-zinc-800">
    
@@ -305,8 +309,8 @@ export default function Home() {
        }
 
        ].map((partners, index)=>{
-       return  (
-        <div key='index' className='my-4 '>
+      return  (
+       <div key={index} className='my-4 hover:shadow-xl overflow-hidden'>
            <img src={partners.img} className='hover:scale-105 duration-500 object-cover overflow-hidden rounded transition-transform'></img>
          <div  className='flex'>
           
@@ -323,7 +327,7 @@ export default function Home() {
          </div>
          
           </div>
-          <div className='flex flex-col'>
+          <div className='flex flex-col mx-4'>
             <div className='flex'>
               <CiCalendarDate className='my-1' />
               <p className='mx-2'>{partners.established}</p>
@@ -333,7 +337,7 @@ export default function Home() {
             <p className='mx-2'>{partners.Affiliated}</p>
           </div>
           </div>
-          <div className='flex items-stretch my-6'>
+          <div className='flex items-stretch my-6 mx-4'>
             <div className='h-full  bg-blue-100 text-blue-900 font-bold  rounded px-2'>
               {partners.courses[0]}
             </div>
@@ -342,11 +346,101 @@ export default function Home() {
             </div>
             <div></div>
           </div>
+         
+         
         </div>
        )
        })}
 
       </section>
+      <h2 className='text-[rgb(3,116,126)] font-bold text-center text-3xl'>Testimonials</h2>
+      <Swiper modules={[Autoplay]} slidesPerView={1}
+      breakpoints={{
+        640:{
+          slidesPerView:1,
+        },
+        768:{
+      slidesPerView:2
+        }
+      }}
+      
+      autoplay={{delay:3000, disableOnInteraction:false}} className=' grid grid-cols-1 md:grid-cols-8 '>
+
+        {[
+          {
+            img: 'https://pariksha.solutions/images/testimonials/Prajwal-Pathak.jpeg' ,
+            student_name:'Prajwal Pathak',
+            college: 'Mechi Multiple Campus, Bsc. CSIT',
+            feedback: '"This platform made entrance preparation so easy and effective. The notes, videos, and mock tests really helped me understand the topics well. I&quotem thankful for the support and highly recommend it to others."',
+            rank: 'Rank:2',
+
+
+        },
+        {
+            img: 'https://pariksha.solutions/images/testimonials/Prajwal-Pathak.jpeg' ,
+            student_name:'Prajwal Pathak',
+            college: 'Mechi Multiple Campus, Bsc. CSIT',
+            feedback: '"This platform made entrance preparation so easy and effective. The notes, videos, and mock tests really helped me understand the topics well. I&quotem thankful for the support and highly recommend it to others."',
+            rank: 'Rank:2',
+
+
+        },
+        {
+            img: 'https://pariksha.solutions/images/testimonials/Prajwal-Pathak.jpeg' ,
+            student_name:'Prajwal Pathak',
+            college: 'Mechi Multiple Campus, Bsc. CSIT',
+            feedback: '"This platform made entrance preparation so easy and effective. The notes, videos, and mock tests really helped me understand the topics well. I&quotem thankful for the support and highly recommend it to others."',
+            rank: 'Rank:2',
+
+
+        },
+        {
+            img: 'https://pariksha.solutions/images/testimonials/Prajwal-Pathak.jpeg' ,
+            student_name:'Prajwal Pathak',
+            college: 'Mechi Multiple Campus, Bsc. CSIT',
+            feedback: '"This platform made entrance preparation so easy and effective. The notes, videos, and mock tests really helped me understand the topics well. I&quotem thankful for the support and highly recommend it to others."',
+            rank: 'Rank:2',
+
+
+        },
+        {
+            img: 'https://pariksha.solutions/images/testimonials/Prajwal-Pathak.jpeg' ,
+            student_name:'Prajwal Pathak',
+            college: 'Mechi Multiple Campus, Bsc. CSIT',
+            feedback: '"This platform made entrance preparation so easy and effective. The notes, videos, and mock tests really helped me understand the topics well. I&quotem thankful for the support and highly recommend it to others."',
+            rank: 'Rank:2',
+
+
+        },
+    ].map((Testimonials,index)=>{
+       return(
+          <SwiperSlide key={index} >
+            <div className='flex my-5 mx-18'>
+              <img 
+                src={Testimonials.img} 
+                alt={Testimonials.student_name}
+                width={50}
+                height={30}
+                className='rounded-full'
+              />
+              <div className='flex flex-col mx-4'>
+                <h2 className='font-bold'>{Testimonials.student_name}</h2>
+                <p>{Testimonials.college}</p>
+                
+              </div>
+
+
+              
+            </div>
+            <p className='text-start w-[400px] mx-18 '>{Testimonials.feedback}</p>
+
+          </SwiperSlide>
+         
+       
+      )
+    })}
+  
+      </Swiper>
     </div>
   );
 }    
