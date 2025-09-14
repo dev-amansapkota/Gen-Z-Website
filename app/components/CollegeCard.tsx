@@ -8,7 +8,7 @@ const UniversityCard = () => {
     <div> <h2 className="text-2xl sm:text-3xl font-bold text-center my-8">
             College Courses
           </h2>
-          <section className="px-4 sm:px-6 lg:px-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <section className="px-7  sm:px-6 lg:px-15 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-6">
             {[
               {
                 title: 'CMAT Preparation',
@@ -33,14 +33,14 @@ const UniversityCard = () => {
             ].map((course, index) => (
               <div
                 key={index}
-                className="bg-white text-black rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                className="bg-white hover:shadow-2xl text-black group rounded-lg overflow-hidden shadow-inner "
               >
                 <img
                   src={course.img}
                   alt={course.title}
                   width={500}
                   height={300}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  className="w-full h-48 object-cover rounded-t-lg group-hover:scale-110 transition-transform duration-500 group-hover:shadow-2xl "
                 />
                 <div className="p-4">
                   <h3 className="text-xl sm:text-2xl font-bold">{course.title}</h3>

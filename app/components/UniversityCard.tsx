@@ -36,7 +36,7 @@ const UniversityCard = () => {
             ].map((uni, index) => (
               <div
                 key={index}
-                className="relative bg-white text-black rounded-lg shadow-md overflow-hidden"
+                className="relative bg-white text-black rounded-lg overflow-hidden"
               >
                 <img
                   src={uni.img}
