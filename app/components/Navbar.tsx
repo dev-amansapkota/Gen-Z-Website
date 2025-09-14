@@ -1,53 +1,299 @@
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 const Navbar = () => {
- const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const [batchTab, setBatchTab] = useState(0);
+
+  const batchCategory = [
+    {
+      name: "Offline Batches",
+      batches: [
+        {
+          title: "Data Science Offline Batch",
+          duration: "6 months",
+          location: "Delhi Campus",
+          startDate: "25 Sep, 2025",
+          tag: "Limited Seats",
+        },
+        {
+          title: "Digital Marketing Offline",
+          duration: "4 months",
+          location: "Mumbai Campus",
+          startDate: "10 Oct, 2025",
+        },
+      ],
+    },
+    {
+      name: "Online Batches",
+      batches: [
+        {
+          title: "Full Stack Web Development",
+          duration: "5 months",
+          location: "Zoom",
+          startDate: "1 Oct, 2025",
+          tag: "Popular",
+        },
+        {
+          title: "Cybersecurity Bootcamp",
+          duration: "6 months",
+          location: "Online Portal",
+          startDate: "15 Oct, 2025",
+        },
+      ],
+    },
+    {
+      name: "Weekend Batches",
+      batches: [
+        {
+          title: "AI for Working Professionals",
+          duration: "3 months",
+          location: "Online",
+          startDate: "12 Oct, 2025",
+          tag: "Weekend",
+        },
+      ],
+    },
+  ];
+
+  const categories = [
+    {
+      name: "Data Science & Analytics",
+      courses: [
+        { title: "Data Science With Generative AI Course", tag: "Bestseller", duration: "6 months" },
+        { title: "Data Analytics With AI Course (Live)", tag: "Popular", duration: "7 months" },
+        { title: "Data Analytics Course - Hinglish", duration: "8 months" },
+      ],
+    },
+    {
+      name: "Software Development Courses",
+      courses: [
+        { title: "Full Stack Web Dev", tag: "Popular", duration: "6 months" },
+        { title: "Frontend with React", duration: "4 months" },
+      ],
+    },
+    {
+      name: "Digital Marketing With AI",
+      courses: [
+        { title: "AI Marketing Bootcamp", duration: "3 months" },
+      ],
+    },
+  ];
+
+  const masterclasses = [
+    {
+      title: "The Fastest-Hiring Companies Want FinTech...",
+      date: "Monday, 15 Sep, 2025",
+    },
+    {
+      title: "Data Science for Beginners: Predicting House Prices",
+      date: "Sunday, 14 Sep, 2025",
+    },
+    {
+      title: "Data Analytics Essentials: Introduction to SQL",
+      date: "Sunday, 14 Sep, 2025",
+    },
+  ];
+
   return (
-   <nav className="my-3 px-4 sm:px-6 lg:px-10 flex justify-between items-center font-bold">
+    <nav className="sticky top-0 bg-white z-50 shadow-md py-3 px-4 sm:px-6 lg:px-10 flex justify-between items-center flex-wrap font-bold">
+      {/* Logo */}
+      <div className="flex-shrink-0">
         <img
           src="https://media.istockphoto.com/id/1145199614/vector/vector-illustration-with-color-phrase-generation-z.jpg?s=612x612&w=0&k=20&c=g3uova_gfEOP5UtWVEzJAO24ppFUKA05i2tsRjOM1zk="
           alt="Gen Z Learning Logo"
-          width={80}
-          height={80}
           className="w-16 sm:w-20"
         />
-        <div className="flex items-center">
-          <ul className="hidden md:flex text-lg lg:text-xl gap-4 lg:gap-6 mr-4 lg:mr-6">
-            <li className="relative cursor-pointer group">
-              Batches
-              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-amber-700 transition-all duration-300 group-hover:w-full"></span>
-            </li>
-            <li className="hover:underline">
-              <Link href="/about">Courses</Link>
-            </li>
-            <li className="hover:underline">PYQs</li>
-            <li className="hover:underline">Entrance Exam</li>
-          </ul>
-          <button className="bg-blue-900  text-white text-lg px-6 lg:px-10 py-2 rounded-full hover:bg-gray-800 transition">
-            Sign In
-          </button>
-          <button
-            className="md:hidden ml-4 text-2xl"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          > 
-            ☰
-          </button>
-        </div>
-        {isMenuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-gray-900 text-white z-20 md:hidden">
-            <ul className="flex flex-col items-center text-lg py-4 gap-4">
-              <li className="hover:underline">Batches</li>
-              <li className="hover:underline">
-                <Link href="/about">Courses</Link>
-              </li>
-              <li className="hover:underline">PYQs</li>
-              <li className="hover:underline">Entrance Exam</li>
-            </ul>
-          </div>
-        )}
-      </nav>
-  )
-}
+      </div>
 
-export default Navbar
+      {/* Desktop Nav Links */}
+      <ul className="hidden md:flex text-lg gap-6 items-center">
+        {/* Batches */}
+        <li className="relative group">
+          <button className="hover:underline">Batches</button>
+          <div className="absolute left-0 top-full mt-1 w-[900px] bg-white shadow-xl border z-50
+                          opacity-0 pointer-events-none
+                          group-hover:opacity-100 group-hover:pointer-events-auto
+                          transition-opacity duration-200">
+            <div className="grid grid-cols-3 p-6 gap-6">
+              {/* Tabs */}
+              <div className="border-r pr-4">
+                {batchCategory.map((batch, idx) => (
+                  <button
+                    key={idx}
+                    onMouseEnter={() => setBatchTab(idx)}
+                    className={`block w-full text-left py-2 px-3 rounded ${
+                      idx === batchTab
+                        ? "bg-red-100 text-red-800"
+                        : "hover:bg-gray-100"
+                    }`}
+                  >
+                    {batch.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Batches List */}
+              <div className="border-r pr-4">
+                {batchCategory[batchTab].batches.map((b, idx) => (
+                  <div key={idx} className="border p-3 rounded-lg mb-2">
+                    <div className="flex justify-between items-center">
+                      <h4>{b.title}</h4>
+                      {b.tag && (
+                        <span className="text-xs bg-purple-200 text-purple-800 font-semibold px-2 py-0.5 rounded">
+                          {b.tag}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-600">{b.duration}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Masterclasses */}
+              <div>
+                <h3 className="text-blue-700 font-semibold text-sm mb-2">Masterclasses</h3>
+                {masterclasses.map((item, idx) => (
+                  <div key={idx} className="text-sm mb-2">
+                    <p className="font-medium">{item.title}</p>
+                    <p className="text-gray-500 text-xs">{item.date}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* Courses */}
+        <li className="relative group">
+          <button className="hover:underline">Courses</button>
+          <div className="absolute left-0 top-full mt-1 w-[900px] bg-white shadow-xl border z-50
+                          opacity-0 pointer-events-none
+                          group-hover:opacity-100 group-hover:pointer-events-auto
+                          transition-opacity duration-200">
+            <div className="grid grid-cols-3 p-6 gap-6">
+              {/* Category Tabs */}
+              <div className="border-r pr-4">
+                {categories.map((cat, idx) => (
+                  <button
+                    key={idx}
+                    onMouseEnter={() => setActiveCategory(idx)}
+                    className={`block w-full text-left py-2 px-3 rounded ${
+                      idx === activeCategory
+                        ? "bg-red-100 text-red-800"
+                        : "hover:bg-gray-100"
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Courses List */}
+              <div className="pr-4">
+                {categories[activeCategory].courses.map((course, idx) => (
+                  <div key={idx} className="border p-3 rounded-lg mb-2 hover:shadow-sm transition">
+                    <div className="flex justify-between items-center">
+                      <h4>{course.title}</h4>
+                      {course.tag && (
+                        <span className="text-xs bg-purple-200 text-purple-800 font-semibold px-2 py-0.5 rounded">
+                          {course.tag}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-600">{course.duration}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Masterclasses */}
+              <div className="border-l pl-4">
+                <h3 className="text-blue-700 font-semibold text-sm mb-2">Masterclasses</h3>
+                {masterclasses.map((item, idx) => (
+                  <div key={idx} className="text-sm mb-2">
+                    <p className="font-medium">{item.title}</p>
+                    <p className="text-gray-500 text-xs">{item.date}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li className="hover:underline">PYQs</li>
+        <li className="hover:underline">Entrance Exam</li>
+      </ul>
+
+      {/* Search, Sign In, Hamburger */}
+      <div className="flex items-center gap-3 mt-3 md:mt-0">
+        <div className="relative w-40 sm:w-60 md:w-72">
+          <FaSearch className="absolute top-2 left-2 text-gray-500" />
+          <input
+            type="search"
+            placeholder="Search Course"
+            className="w-full pl-8 pr-3 py-1 border rounded-md text-sm"
+          />
+        </div>
+        <button className="bg-blue-900 text-white text-sm px-4 py-2 rounded-full hover:bg-gray-800 transition">
+          Sign In
+        </button>
+        <button
+          className="md:hidden text-2xl ml-2"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="w-full mt-4 bg-gray-800 text-white px-4 py-4 md:hidden rounded-lg">
+          <ul className="flex flex-col gap-4 text-base">
+            <li>
+              <details>
+                <summary className="cursor-pointer">Batches</summary>
+                <ul className="pl-4 mt-2 space-y-2 text-sm">
+                  {batchCategory.map((cat, idx) => (
+                    <li key={idx}>
+                      <p className="font-semibold">{cat.name}</p>
+                      <ul className="pl-2 space-y-1">
+                        {cat.batches.map((b, i) => (
+                          <li key={i} className="text-gray-300">
+                            {b.title}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary className="cursor-pointer">Courses</summary>
+                <ul className="pl-4 mt-2 space-y-2 text-sm">
+                  {categories.map((cat, idx) => (
+                    <li key={idx}>
+                      <p className="font-semibold">{cat.name}</p>
+                      <ul className="pl-2 space-y-1">
+                        {cat.courses.map((c, i) => (
+                          <li key={i} className="text-gray-300">{c.title}</li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+            <li>PYQs</li>
+            <li>Entrance Exam</li>
+          </ul>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
