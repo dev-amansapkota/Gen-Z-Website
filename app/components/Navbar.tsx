@@ -247,7 +247,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="w-full mt-4 bg-gray-800 text-white px-4 py-4 md:hidden rounded-lg">
           <ul className="flex flex-col gap-4 text-base">
