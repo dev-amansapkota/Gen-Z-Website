@@ -1,8 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 
+interface questions {
+  question: string,
+  answer:string
+}
 const FAQs = () => {
      const [isArrowOpen, setIsArrowOpen] = useState(false);
+     const [faqs, setFaqs] = useState <questions[]> ([])
+
+     useEffect(()=>{
+      const fetchFaqs =async () => {
+       const response = await fetch("/api/FAQs") ;
+      const data = await response.json();
+
+      setFaqs(data);
+      }
+
+      fetchFaqs();
+     },[]);
+     
   return (
     <div><div className='my-6'>
           <h2 className='font-bold text-center text-2xl  text-red-700 '>FAQs</h2>
@@ -12,11 +29,13 @@ const FAQs = () => {
         
         <div className=' flex max-w-1/2  mx-auto '>
                 
-          <button onClick={()=>setIsArrowOpen(!isArrowOpen)}
+         { faqs.map((FAQ, index)=>(
+           <div key={index} className='hover:underline max-w-1/2  mx-auto'>
+            <button onClick={()=>setIsArrowOpen(!isArrowOpen)}
           
-          className='hover:underline max-w-1/2  mx-auto '>
+        >
               
-            <div className='flex'><h2 className='font-bold'>What is Generation Z website?</h2>
+            <div className='flex'><h2 className='font-bold'>{FAQ.question}</h2>
        
 
           {isArrowOpen ?(
@@ -30,7 +49,7 @@ const FAQs = () => {
 
           {isArrowOpen && (
             <div className='text-start'>
-              <p> {'=> '}A Generation Z website is a digital platform designed specifically to engage and resonate with the unique preferences, values, and online behaviors of Generation Z, emphasizing speed, visual storytelling, personalization, social media integration, and mobile-first usability.</p>
+              <p> {'=> '}{FAQ.answer}</p>
             </div>
             
           )
@@ -38,6 +57,13 @@ const FAQs = () => {
 
          
           </button>
+            </div>
+
+         ))}
+        
+        
+        
+          
            <div className=' items-end flex '><img src='https://i.imgur.com/oeqNAPk.png' className='md:w-[200px]  '></img></div>
         </div></div>
   )
