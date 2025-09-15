@@ -1,24 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Navigation,Pagination,Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+
+
+
+interface Slides {
+  img: string,
+  title:string,
+  desc: string,
+}
 
 const Homepage = () => {
+ const [slides, setslides] = useState<Slides[]> ([])
+
+ useEffect(()=>{
+  const fetchSliders = async () => {
+  const response = await fetch("/api/slider");
+  const  data = await response.json();
+setslides(data);
+  }
+
+  fetchSliders();
+ },[]);
   return (
-   <div className="relative flex flex-col items-center justify-center min-h-[50vh] sm:min-h-screen">
-        <video
-          src="/HomeVideo.mp4"
-          loop
-          playsInline
-          muted
-          autoPlay
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        />
-        <div className="relative z-10 text-center px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-mono text-white animate-typing border-r-4 border-amber-500 whitespace-nowrap overflow-hidden">
-            Welcome to Gen Z Learning 🚀
-          </h1>
-          <h2 className="mt-4 text-xl sm:text-2xl font-semibold">
-            Revolution In Nepal
-          </h2>
-        </div>
+   <div >
+
+    {slides.length > 1 && (
+ <Swiper modules={[Navigation,Pagination,Autoplay]}
+    autoplay={{delay:3000,  disableOnInteraction: false,}}
+    
+    navigation
+    
+    loop={true}
+    
+    pagination = {{clickable:true}}
+
+    
+    >
+      {
+        slides.map((slide, index)=>(
+          <SwiperSlide key={index}>
+             <div >
+                <img src={slide.img}></img>
+             </div>
+          </SwiperSlide>
+        ))
+      }
+
+    </Swiper>
+    )}
+   
+       
       </div>
   )
 }

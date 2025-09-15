@@ -98,13 +98,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 bg-white z-50 shadow-md py-3 px-4 sm:px-6 lg:px-10 flex justify-between items-center flex-wrap font-bold">
-      {/* Logo */}
+    <nav className="sticky top-0 bg-white z-50 shadow-md py-2 px-4 sm:px-6 lg:px-10 flex justify-between items-center flex-wrap font-bold">
+    
       <div className="flex-shrink-0">
         <img
-          src="https://media.istockphoto.com/id/1145199614/vector/vector-illustration-with-color-phrase-generation-z.jpg?s=612x612&w=0&k=20&c=g3uova_gfEOP5UtWVEzJAO24ppFUKA05i2tsRjOM1zk="
+          src="https://scontent.fktm21-2.fna.fbcdn.net/v/t39.30808-1/537426629_690766817355702_5921836546936864767_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeHrvz6lECSF9FaoONR5bihfBxU7QgpyRzgHFTtCCnJHOGoTS2HsuOiDda1_5qczwyOVGjryd85n1ESyxSQxJ_Um&_nc_ohc=1hOjxhamoDIQ7kNvwHAqqWw&_nc_oc=Adkjnblnc-n0oBE0JHNPcuZTtfIKzwz_3P_jz1OOV9Fw_cYNObLHaRs3FgmyaI4DORo99xL73d2SuLWfpU2B6wu5&_nc_zt=24&_nc_ht=scontent.fktm21-2.fna&_nc_gid=aE8FZfBSeKkp3tWoEiWUOg&oh=00_AfanN9ORrrmrd1-HnC6RVnnnmfeo2_xsAY00pypztDXsPg&oe=68CDF0D8"
           alt="Gen Z Learning Logo"
-          className="w-16 sm:w-20"
+          className="w-16 sm:w-20 h-[50px]"
         />
       </div>
 
@@ -118,7 +118,6 @@ const Navbar = () => {
                           group-hover:opacity-100 group-hover:pointer-events-auto
                           transition-opacity duration-200">
             <div className="grid grid-cols-3 p-6 gap-6">
-              {/* Tabs */}
               <div className="border-r pr-4">
                 {batchCategory.map((batch, idx) => (
                   <button
@@ -151,8 +150,6 @@ const Navbar = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Masterclasses */}
               <div>
                 <h3 className="text-blue-700 font-semibold text-sm mb-2">Masterclasses</h3>
                 {masterclasses.map((item, idx) => (

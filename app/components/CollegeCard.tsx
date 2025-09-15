@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FaQuestion } from 'react-icons/fa';
 import { FiBook } from 'react-icons/fi';
 import { LiaVideoSolid } from 'react-icons/lia';
-import img from 'next/img';
+
 
 interface Courses {
   title: string;

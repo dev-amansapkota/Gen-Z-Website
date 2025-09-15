@@ -1,44 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CiLocationOn, CiCalendarDate } from 'react-icons/ci'
 import { LuGraduationCap } from 'react-icons/lu'
 
+
+
+interface PartnerColleges {
+  img: string,
+  name: string,
+  logo:string,
+  location: string,
+  established:string,
+  affiliated: string,
+  courses: string[],
+
+
+}
 const PartnerColleges = () => {
+  const [PartnerCollege, setPartnerCollege] = useState<PartnerColleges[]> ([]);
+
+  useEffect(()=>{
+    const FetchPartnerColleges=async()=>{
+try{
+   const response = await fetch("/api/PartnerColleges");
+   const data = await response.json()
+   setPartnerCollege(data);
+} catch(err){
+
+  }
+ 
+    }
+     FetchPartnerColleges();
+    
+  },[]);
+  
   return (
     <div><h2 className='mx-4 text-[rgb(3,116,126)] text-3xl font-bold'>Partner Colleges</h2>
       <h2 className='mx-4'>Explore Our Partner College</h2>
       <section
        className='px-4 sm:px-6 lg:px-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'>
-       {[
-        {
-        img: 'https://utfs.io/f/iCN7oS8Yds8DRR3gtew3heTUZGyVkJEKDazdbC4uY6M1wpPi',
-        name: 'Model Institute Of Technology',
-        logo: 'https://utfs.io/f/iCN7oS8Yds8Dnysqh3AlWbZ0mvKeQJoD1fz7Fsytw6Aj8i4n',
-        location:'Bagbazar, Kathmandu',
-        established: 'Established 2001',
-        Affiliated: 'Affiliated to: International Americabn University',
-        courses: ['BIT', 'BBA']
-       },
-       {
-        img:'https://utfs.io/f/iCN7oS8Yds8DLVkhe3vXeCAgz5ckPqxKubojlLMZDQnR3whS',
-        name:'Softwarica College of IT',
-        logo:'https://utfs.io/f/iCN7oS8Yds8D7Lyte5nm6uNiY2ySwR9CtVMBF30bOr845UfD',
-        location:'Maitri marg, Dillibazar, Kathmandu',
-        established:'Established: 2010',
-        Affiliated:'Affiliated to: Conventry University',
-        courses: ['BSc hons CS with Ai', 'BSc(hons) Computing', 'BSc hons']
-
-       },
-       {
-        img:'https://utfs.io/f/iCN7oS8Yds8DAIVycRmLZMFIrGibxalSV6TDKyq4dgmuptzo',
-        name: 'Samridhi College',
-        location: 'Lokanthali, Bhaktapur',
-        logo:'https://utfs.io/f/iCN7oS8Yds8DkF9SUBp1iOvKxwU5MjurmSnaqRXy8cYBeZNV',
-        established: 'Established: 2013',
-        Affiliated: 'Affiliated to: Tribhuwan university',
-        courses: ['CSIT', 'BBS']
-       }
-
-       ].map((partners, index)=>{
+       {PartnerCollege.map((partners, index)=>{
       return  (
        <div key={index} className='my-4 hover:shadow-xl overflow-hidden'>
            <img src={partners.img} className='hover:scale-105 duration-500 object-cover overflow-hidden rounded transition-transform'></img>
@@ -64,7 +64,7 @@ const PartnerColleges = () => {
             </div>
           <div className='flex'>
             <LuGraduationCap className='my-1' />
-            <p className='mx-2'>{partners.Affiliated}</p>
+            <p className='mx-2'>{partners.affiliated}</p>
           </div>
           </div>
           <div className='flex items-stretch my-6 mx-4'>
