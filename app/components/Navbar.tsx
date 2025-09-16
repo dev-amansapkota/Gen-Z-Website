@@ -1,62 +1,42 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
+
+
+interface Batch {
+  title: string;
+  duration: string;
+  location: string;
+  startDate: string;
+  tag?: string; 
+}
+
+interface BatchCategory {
+  name: string;
+  batches: Batch[];
+}
+
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [batchTab, setBatchTab] = useState(0);
+  const [batch, setBatch] = useState<BatchCategory[]> ([])
 
-  const batchCategory = [
-    {
-      name: "Offline Batches",
-      batches: [
-        {
-          title: "Data Science Offline Batch",
-          duration: "6 months",
-          location: "Delhi Campus",
-          startDate: "25 Sep, 2025",
-          tag: "Limited Seats",
-        },
-        {
-          title: "Digital Marketing Offline",
-          duration: "4 months",
-          location: "Mumbai Campus",
-          startDate: "10 Oct, 2025",
-        },
-      ],
-    },
-    {
-      name: "Online Batches",
-      batches: [
-        {
-          title: "Full Stack Web Development",
-          duration: "5 months",
-          location: "Zoom",
-          startDate: "1 Oct, 2025",
-          tag: "Popular",
-        },
-        {
-          title: "Cybersecurity Bootcamp",
-          duration: "6 months",
-          location: "Online Portal",
-          startDate: "15 Oct, 2025",
-        },
-      ],
-    },
-    {
-      name: "Weekend Batches",
-      batches: [
-        {
-          title: "AI for Working Professionals",
-          duration: "3 months",
-          location: "Online",
-          startDate: "12 Oct, 2025",
-          tag: "Weekend",
-        },
-      ],
-    },
-  ];
+
+  useEffect(()=>{
+    const FetchBatches =async () =>{
+   const response =await fetch('/api/Batches');
+   const data =await  response.json();
+   setBatch(data);
+
+    }
+    FetchBatches();
+
+  },[]);
+
+  
 
   const categories = [
     {
@@ -108,9 +88,9 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Desktop Nav Links */}
+    
       <ul className="hidden md:flex text-lg gap-6 items-center">
-        {/* Batches */}
+
         <li className="relative group">
           <button className="hover:underline">Batches</button>
           <div className="absolute left-0 top-full mt-1 w-[900px] bg-white shadow-xl border z-50
@@ -119,7 +99,7 @@ const Navbar = () => {
                           transition-opacity duration-200">
             <div className="grid grid-cols-3 p-6 gap-6">
               <div className="border-r pr-4">
-                {batchCategory.map((batch, idx) => (
+                {batch.map((batch, idx) => (
                   <button
                     key={idx}
                     onMouseEnter={() => setBatchTab(idx)}
@@ -136,7 +116,7 @@ const Navbar = () => {
 
               {/* Batches List */}
               <div className="border-r pr-4">
-                {batchCategory[batchTab].batches.map((b, idx) => (
+                {batch[batchTab]?.batches?.map((b, idx) => (
                   <div key={idx} className="border p-3 rounded-lg mb-2">
                     <div className="flex justify-between items-center">
                       <h4>{b.title}</h4>
@@ -221,6 +201,7 @@ const Navbar = () => {
 
         <li className="hover:underline">PYQs</li>
         <li className="hover:underline">Entrance Exam</li>
+        <li className="hover:underline">Mock Exam</li>
       </ul>
 
       {/* Search, Sign In, Hamburger */}
@@ -251,7 +232,7 @@ const Navbar = () => {
               <details>
                 <summary className="cursor-pointer">Batches</summary>
                 <ul className="pl-4 mt-2 space-y-2 text-sm">
-                  {batchCategory.map((cat, idx) => (
+                  {batch.map((cat, idx) => (
                     <li key={idx}>
                       <p className="font-semibold">{cat.name}</p>
                       <ul className="pl-2 space-y-1">

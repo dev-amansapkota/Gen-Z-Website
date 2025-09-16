@@ -15,7 +15,7 @@ const Footer = () => {
         alt="Logo"
       />
       <div>
-        <h2 className="font-bold text-lg">Generation Z Nepal</h2>
+        <h2 className="font-bold text-lg">ExamSathi</h2>
         <p className="text-sm">We are for quality education</p>
       </div>
     </div>
