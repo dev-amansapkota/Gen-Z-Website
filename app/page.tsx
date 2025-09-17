@@ -8,6 +8,7 @@ import Testimonial from './components/Testimonial';
 import FAQs from './components/FAQs';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage';
+import TrustedPlatform from './components/TrustedPlatform'
 
 
 
@@ -19,6 +20,7 @@ export default function Home() {
    
      <Navbar/>
      <Homepage/>
+     <TrustedPlatform/>
      <CourseCard/>
      <CollegeCard/>
      <UniversityCard/>
