@@ -202,16 +202,17 @@ const Navbar = () => {
         <li className="hover:underline">PYQs</li>
         <li className="hover:underline">Entrance Exam</li>
         <li className="hover:underline">Mock Exam</li>
+        <li className="hover:underline">Tech Skills</li>
       </ul>
 
-      {/* Search, Sign In, Hamburger */}
+  
       <div className="flex items-center gap-3 mt-3 md:mt-0">
         <div className="relative w-40 sm:w-60 md:w-72">
           <FaSearch className="absolute top-2 left-2 text-gray-500" />
           <input
             type="search"
             placeholder="Search Course"
-            className="w-full pl-8 pr-3 py-1 border rounded-md text-sm"
+            className="w-full pl-8 pr-3 py-1 border rounded-md text-sm border-2"
           />
         </div>
         <button className="bg-blue-900 text-white text-sm px-4 py-2 rounded-full hover:bg-gray-800 transition">
