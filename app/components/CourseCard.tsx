@@ -48,14 +48,14 @@ setCourses(data);
                   <h3 className="text-xl sm:text-2xl font-bold">{course.title}</h3>
                   <div className="flex flex-wrap gap-2 mt-4">
                     {course.categories.map((cat, i) => (
-                      <a key={i} href={course.link[i]}>
+                      <Link key={i} href={course.link[i]}>
                         <span
                        
                         className="px-4 py-1 border-1 border-zinc-400 rounded-full text-sm"
                       >
                         {cat}
                       </span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <div className="mt-6 flex items-center text-zinc-700 hover:text-amber-900 hover:underline">

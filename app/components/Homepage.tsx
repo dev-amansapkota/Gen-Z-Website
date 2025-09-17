@@ -4,6 +4,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Link from 'next/link'
 
 
 
@@ -12,6 +13,7 @@ interface Slides {
   img: string,
   title:string,
   desc: string,
+  url: string,
 }
 
 const Homepage = () => {
@@ -44,9 +46,9 @@ setslides(data);
       {
         slides.map((slide, index)=>(
           <SwiperSlide key={index}>
-             <div >
+             <Link href={slide.url}>
                 <img src={slide.img}></img>
-             </div>
+             </Link>
           </SwiperSlide>
         ))
       }
