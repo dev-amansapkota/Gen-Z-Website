@@ -80,6 +80,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 bg-white z-50 shadow-md py-2 px-4 sm:px-6 lg:px-10 flex justify-between items-center flex-wrap font-bold">
     
+      <Link href="/">
       <div className="flex  h-16 w-auto items-center">
         <img
           src="https://ik.imagekit.io/x2tlk7qbl/Examsathi/7adbcce4-f0e1-460f-b479-821b99c6932d-removebg-preview%20(1).png"
@@ -87,6 +88,7 @@ const Navbar = () => {
           className="h-full object-contain w-auto"
         />
       </div>
+      </Link>
 
     
       <ul className="hidden md:flex text-lg gap-6 items-center">
