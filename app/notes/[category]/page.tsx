@@ -139,7 +139,7 @@ const Page = ({ params }: Props) => {
  
 {
   SubjectCategory.map((Subjects,index)=>(
-     <Link href={`/notes/${category}/physics`} className='flex' key={index}> 
+     <Link href={`/notes/${category}/${Subjects.name}`} className='flex' key={index}> 
       <div  
       className='my-8  mx-8 md:w-[330px] w-full'>
         <div className={`  h-[100px] border   rounded-2xl  shadow hover:shadow-xl shadow-lg hover:scale-105 duration-500 ${Subjects.bgColor} ${Subjects.border} `} >
