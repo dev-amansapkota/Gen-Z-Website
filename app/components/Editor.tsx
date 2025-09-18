@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from 'react'
 const TinyEditor = () =>{
 
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const EditorRef = useRef<any>(null);
     const [initialContent, setInitialContent] = useState<string | null >(null)
     const [loading, setLoading] = useState(false)
